@@ -1,0 +1,279 @@
+<!doctype html>
+
+<html>
+  <head>
+
+    !-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!-- Optional theme -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+
+
+
+    <title>CSCI 444 Project 1 - BLS Data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">CSCI 444 - Project 1 - William Lyon</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <!--  <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li> -->
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="starter-template">
+	<br><br>
+        <h1>Baker vs. Software Developer</h1>
+        <p class="lead">Using BLS data to compare two industries in Missoula county Montana.</p>
+
+      </div>
+
+    <ul id="myTab" class="nav nav-tabs">
+        
+	<li class="active"><a href="#overview" data-toggle="tab">Overview</a></li>
+	<li><a href="#hypothesis" data-toggle="tab">Hypothesis</a></li>
+	<li><a href="#bad_vis" data-toggle="tab">Bad Visual</a></li>
+	<li><a href="#good_vis" data-toggle="tab">Good Visual</a></li>
+	<li><a href="#vis_1" data-toggle="tab">Visual #1</a></li>
+        <li><a href="#vis_2" data-toggle="tab">Visual #2</a></li>
+	<li><a href="#vis_3" data-toggle="tab">Visual #3</a></li>
+	<li><a href="#vis_4" data-toggle="tab">Visual #4</a></li>
+	<li><a href="#anal" data-toggle="tab">Analysis</a></li>
+	<li><a href="#nerds" data-toggle="tab">About</a></li>
+  
+
+    </ul>
+      <div id="myTabContent" class="tab-content">
+
+        <div class="tab-pane fade in active" id="overview">
+	  <br><p>Content here</p> 
+	</div>
+
+
+	<div class="tab-pane fade" id="hypothesis">
+	  <br><p>Content here</p>
+	  <div class="panel panel-info">
+	    <div class="panel-heading">
+	      <h3 class="panel-title">Title here</h3>
+	    </div>
+	    <div class="panel-body">
+	    <p>Hypothesis text here </p>
+	    </div>
+	  </div>
+
+	</div> <!-- /.tab-pane -->
+
+	<div class="tab-pane fade" id="bad_vis">
+
+	  <a href="http://www.businessinsider.com/the-state-of-media-employment-2013-1?op=1">From Business Insider</a><br>
+
+	  <img src="http://static.businessinsider.com/image/51098602eab8eab75800001c-1200/employment-in-the-bookperiodicalmusic-industry-has-been-on-a-steady-downward-trend-and-in-2011-the-bottom-completely-fell-out-of-the-industry.jpg">
+
+	  <div class="panel panel-danger">
+	    <div class="panel-heading">
+	      <h3 class="panel-title">Why this is a bad visual</h3>
+	    </div>
+	    <div class="panel-body">
+	      <p>This visual shows employment in book, periodical and music stores from 2001-2011. This visual is a bad example because it uses a non-standard method to display time-series data. With time-series data typically the x-axis is used to represent time. Instead this visual uses the x-axis to show employment levels. Time is represented only by a label on the scatter plots themselves. This results in initial confusion: at first glance, employment in book stores appears to be <strong>growing</strong> linearly. After orienting themselves to the visual, the viewer is able to discern that in fact employment in the industry is <strong>shrinking</strong> linearly.</p>
+
+	      <p>
+	      I also find the use of the size of bubble to represent average employment per establishment troubling. In general this is a good idea as it allows the visual to convey another dimension of information, however the way this is implemented in this visual is less than ideal. Because average employment per establishment is essentially the x-axis value divided by the y-axis value and since the overall size of the industry has been changing linearly, the average employment per establishment has been relatively unchanged. Therefore, all bubbles appear to be the same size. This leaves the viewer confused. "Am I missing something?" the viewer wonders.
+	      </p>
+	    </div>
+	  </div>
+
+	</div>
+
+
+	<div class="tab-pane fade" id="good_vis">
+	  <a href="http://blog.futureadvisor.com/explore-changes-in-wages-and-employment-across-industries/">From FutureAdvisor blog</a>
+	  <p><iframe style="border: 0px;" src="http://bl.ocks.org/ameliagreenhall/raw/d30a9ceb68f5b0fc903c/" height=600 width=600 scrolling="no"></iframe></p>
+
+
+	  <div class="panel panel-success">
+	    <div class="panel-heading">
+	      <h3 class="panel-title">Why this is a good visual</h3>
+	    </div>
+	    <div class="panel-body">
+	      <p>I find this data visualization particularly appealing. It allows for the type of comparison across industry that is the focus of my hypothesis for this project. Consistent with Tufte's principle of maximizing the "data-ink ratio" there is quite a bit of information being displayed in this single graphic. Interactive features allow the viewer to select industries to view detailed information or zoom in on a section of the chart to compare industries. This level of interactivity allows the visualization to maximize data density, without losing legibility or information since the user can zoom in and/or select individual points for more information. Some visuals use interactive features as a gimmick, resulting in chartjunk or focusing on design rather than the actual display of data, however I think this visual provides the right level of interactivity without impacting graphical integrity. This graphic became an inspiration for me as I moved forward with the project and indeed Visual #4 is an attempt to reproduce this graphic and some of the interactive features, but with data pertinent to the investigation of our hypothesis. </p>
+	    </div>
+	  </div>
+
+	</div> <!-- /.tab-pane -->
+
+	<div class="tab-pane fade" id="vis_1">
+	  <h3>Average Annual Salary in Missoula, MT (inflation adjusted to 2012 Dollars)</h3>
+	   Source: <a href="ftp://ftp.bls.gov/pub/special.requests/cew/">BLS Cenus Of Employment And Wages</a>
+	  <p><iframe style="border: 0px;" src="/viz1" height="550" width="1200" scrolling="no"></iframe></p>
+	  <div class="panel panel-primary">
+	    <div class="panel-heading">
+	      <h3 class="panel-title">About Visual #1</h3>
+	    </div>
+	    <div class="panel-body">
+	      <p>This visual shows average annual earnings in Missoula, MT for the food manufacturing and custom computer programming industries from 1990-2012. To maintain graphical integrity and avoid distortions all values are adjusted for inflation by converting to 2012 equivalent dollars using the Consumer Price Index. </p>
+
+	      <p>This graph shows data consistent with our hypothesis: it is clear that average annual earnings in the computer programming industry have been growing steadily while food manufacturing salaries have not even been keeping up with inflation. It is interesting to note that as recently as 2000 food manufacturing on average paid more than computer programming, but since then salaries have diverged dramatically.</p>
+	    </div>
+	  </div>
+	</div> <!-- /.tab-pane -->
+  
+        <div class="tab-pane fade" id="vis_2">
+        
+	  <h3>Size Of Industry in Missoula, MT (number of establishments)</h3>
+	   Source: <a href="ftp://ftp.bls.gov/pub/special.requests/cew/">BLS Cenus Of Employment And Wages</a>
+
+
+	  <p><iframe style="border: 0px;" src="/viz2" height="550" width="1200" scrolling="no"></iframe></p>
+	  <div class="panel panel-primary">
+	    <div class="panel-heading">
+	      <h3 class="panel-title">About Visual #2</h3>
+	    </div>
+	    <div class="panel-body">
+	      <p>Number of establishments per industry is used as a measurement of industry size in this graphic. I debated plotting a growth rate, rather than the actual number of establishments, however I felt that since the initial size of the industries were similar any conversion to a growth rate would not add any benefit and might further distort interpretation of the data.</p>
+
+	      <p>We can see that initally food manufacturing is a larger industry, however computer programming quickly grows to dwarf the food manufacturing industry. This is consistent with our hypotheis: it is better to be employed in an industry that is consistently growing, rather than one that is stagnant.</p>
+	      
+	      <p>It is also important to note that number of establishments might not be a perfect measurement of the size of an industry. Employment level, the number of persons employed per industry, is also available and is indeed used in Visual #4. </p>  
+
+
+	  </div>
+
+    
+	  </div> 
+
+	</div> <!-- / .tab-pane -->
+
+	<div class="tab-pane fade" id="vis_3">
+	  <h3>Rate of job openings in Missoula, MT by Industry</h3>
+	  Source: <a href="ftp://ftp.bls.gov/pub/time.series/jt/">BLS Job Openings and Labor Turnover Survey (JOLTS)</a>
+
+	  <iframe style="border: 0px;" src="/viz3" height="550" width="1200" scrolling="no"></iframe> 
+	  <div class="panel panel-primary">
+	    <div class="panel-heading">
+	      <h3 class="panel-title">About Visual #3</h3>
+	    </div>
+	    <div class="panel-body">
+	      <p>In this visual we encounter data that is not consistent with our hypothesis: on average it appears the job openings for food manufacturing are higher than computer programming suggesting it might be easier to find and maintain a job in the food manufacturing industry.</p>
+
+	      <p> This graphic maintains graphical integrity by adjusting values to take into account the size of industry: instead of showing the number of job openings, the number of openings is divded by overall employment in the industry resulting in a job opening rate.</p>
+	    </div>
+	  </div>
+
+	</div> <!-- /.tab-pane -->
+
+	<div class="tab-pane fade" id="vis_4">
+	  <h3>Changes In Employment And Salary in Missoula, MT by Industry, 2001-2012</h3>
+	  Source: <a href="ftp://ftp.bls.gov/pub/special.requests/cew/">BLS Cenus Of Employment And Wages</a>
+
+	  <iframe style="border: 0px;" src="/viz3" height="550" width="1200" scrolling="no"></iframe> 
+	  <div class="panel panel-primary">
+	    <div class="panel-heading">
+	      <h3 class="panel-title">About Visual #4</h3>
+	    </div>
+	    <div class="panel-body">
+	      <p>This visual attempts to show similar data as that presented in Visuals #1 and #2: on the x-axis the percent change in the number of workers in the industry and on the y-axis the percent change in inflation adjusted annual earnings, both from 2001-2012. This graphic shows data consitent with our hypotheis: average food manufacturing inflation-adjusted earnings have <strong>declined</strong> by 26.63% while average computer programming inflation-adjusted earnings have increaded by 32.88%. Similarly, industry size (as measured by number of people employed in that industry) has increased for food manufacturing by 2.69% while the computer programming industry has incrased by a much larger 117.31%. Consistent with our hypotheis: it is much better to be employed in an industry that is growing rapidly with increasing average salaries.</p>
+
+	      <p>Graphical integrity is maintained in this graphic by ensuring the time periods used for computing changes are consistent across both axes, adjusting salary data for inflation, and plotting percent changes instead of value changes. Data density is maximized, without losing meaning with the help of interactive tool-tip like detail information display.</p>
+	    </div>
+	  </div>
+
+	</div> <!-- /.tab-pane -->
+
+    
+
+
+
+	<div class="tab-pane fade" id="nerds">
+	 <p> Data visualizations on this page were created with <a href="https://github.com/shutterstock/rickshaw">Rickshaw</a>, a charting library built on top of <a href="http://d3js.org/">D3</a>, a javascript library for creating "data driven documents".</p>
+
+	  <p><a href="http://www.mongodb.org/">MongoDB</a> was used to help with data analysis and fetching.</p>
+
+	  
+	  <p>All data came from the <a href="http://www.bls.gov">Bureau Of Labor Statistics</a></p>
+
+	  <p>Source code for this project is available on <a href="http://github.com/johnymontana/baker_vs_software">github</a></p>
+
+	  <p>Javascript code for least squares line fit:
+	  <pre>
+	  var addRegression = function(series) {
+	    var num_series = series.length;
+	    for (var i = 0; i&lt;num_series; i++) {
+	      var obj = series[i];
+	      var x = [];   
+	      var y = [];
+	      var s_x = 0;
+	      var s_y = 0;
+	      var s_xx = 0;
+	      var s_yy = 0;
+	      var s_xy = 0;
+	      for (var j = 0; j&lt;obj.data.length; j++) {
+		x.push(obj.data[j].x);
+		y.push(obj.data[j].y);
+		s_x += obj.data[j].x;
+		s_y += obj.data[j].y;
+		s_xy += obj.data[j].x * obj.data[j].y;
+		s_xx += obj.data[j].x * obj.data[j].x;
+		s_yy += obj.data[j].y * obj.data[j].y;
+	      }
+
+	      var m = (x.length * s_xy - s_x * s_y) / (x.length * s_xx - (s_x*s_x));
+	      var b = (1 / x.length) * s_y - m * (1/ x.length) * s_x;
+
+	      var obj2 = {};
+	      obj2.name = obj.name + " regression";
+	      obj2.color = obj.color;
+	      obj2.data = [];
+	      obj2.renderer = 'line';
+	      for (var k=0; k &lt; x.length; k++) {
+		obj2.data.push({x: x[k], y: (m*x[k] + b)}); 
+	      }
+    
+	      series.push(obj2);
+	    }
+	  return series;
+	}
+
+
+	  </pre>
+
+	</div>
+      </div> <!-- /.tab-content-->
+
+    </div><!-- /.container -->
+    
+  </body>
+</html>
+
+
+
+
+
+

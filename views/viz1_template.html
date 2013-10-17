@@ -1,0 +1,134 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+    <!--[if lte IE 8]>
+      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+    <![endif]-->
+
+     <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+     <!--<script src="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet-src.js"></script> -->
+     <script src="js/sift.min.js" type="text/javascript"></script>
+     
+    <!--<script src="js/heatmap/src/heatmap.js"></script>
+     <script src="js/heatmap/src/heatmap-leaflet.js"></script>
+     <script src="js/heatmap/src/QuadTree.js"></script> -->
+
+     <script src="js/heatcanvas.js"></script>
+     <script src="js/heatcanvas-leaflet.js"></script>
+     <script src="js/markercluster/leaflet.markercluster-src.js"></script>
+     <link rel="stylesheet" href="js/markercluster/MarkerCluster.css" />
+     <link rel="stylesheet" href="js/markercluster/MarkerCluster.Default.css" />
+     <script src="battleData.js"></script>
+     <script src="MIDA.js"></script>
+     <script src="MIDB.js"></script>
+     <script src="state_mappings.js"></script>
+
+  <style>
+    #map {height: 500px;}
+  </style>
+
+  </head>
+
+  <body>
+    <div id="map"></div>
+
+
+    <script>
+
+      // ideas:
+      //    * use sift to input custom date range for battles
+      //    * use sift for other variables?
+      //    * combine all MID data and use sift to select on specific fields with layer controls use sift for other variables?
+      // jQuery >> onClick for beginYear/endYear inputs >> recalc and redraw
+      //var map = L.map('map').setView([51.505, -0.09], 2);
+
+      var testData={data:[]};
+
+
+      // FIXME: loop through MIDA instead of MIDLOC - remove duplicate disputes
+      //for (var i=1; i<battleData.length; i++) {
+      for (var i=1; i<MIDA.length; i++) {
+	var midlocCurrent = sift({'dispnum': MIDA[i].dispNum}, battleData)[0];
+
+	//var lat = battleData[i].latitude;
+	//var lon = battleData[i].longitude;
+	var lat = midlocCurrent.latitude;
+	var lon = midlocCurrent.longitude;
+	//var midaMatch = sift({'dispNum': battleData[i].dispnum}, MIDA);
+	//var outcome = midaMatch[0].outcome;
+	var outcome = MIDA[i].outcome;
+	//var value = midaMatch[0].fatality;
+	var value = MIDA[i].fatality;
+	var sideA = sift({'dispNum': midlocCurrent.dispnum, 'sideA': true}, MIDB);
+	var sideB = sift({'dispNum': midlocCurrent.dispnum, 'sideA': false}, MIDB);
+	//console.log(sideA);
+	if (value != -9){
+	  testData.data.push({'dispNum': midlocCurrent.dispnum, 'lat': lat, 'lon': lon, 'value': value, 'location': midlocCurrent.mid21location, 'outcome': outcome, 'sideA': sideA, 'sideB': sideB, 'year': midlocCurrent.year});
+	  //console.log(lat, lon, value);
+	}
+      }
+
+      var baseLayer = L.tileLayer('http://{s}.tile.cloudmade.com/ab7393729f6047c695f84e4a00d4a876/997/256/{z}/{x}/{y}.png', { attribution: 'BattleMapz', minZoom: 2, maxZoom: 18});
+
+    var heatmap = new L.TileLayer.HeatCanvas({}, {'step':0.3, 'degree': HeatCanvas.LINEAR, 'opacity': 0.7});
+
+    //var markerLayers = new L.LayerGroup();
+    var markerLayers = new L.MarkerClusterGroup();
+
+    for (var i=0; i<testData.data.length; i++){
+      var marker = new L.Marker(new L.LatLng(testData.data[i].lat, testData.data[i].lon));
+      var sideANames = '';
+      var sideBNames = '';
+
+      for (var a=0; a<testData.data[i].sideA.length; a++){
+	sideANames += testData.data[i].sideA[a].stAbb + ', ';
+      }
+      for (var b=0; b<testData.data[i].sideB.length; b++){
+	sideBNames += testData.data[i].sideB[b].stAbb + ', ';
+      }
+      
+      // TODO: map codes to fulltext (countries, outcomes, fatalities)
+      marker.bindPopup('Dispute: ' + testData.data[i].dispNum + '<br>Location: ' + testData.data[i].location +'<br>Fatalities: '+ fatalityDict[testData.data[i].value]+'<br>Start year: ' + testData.data[i].year.toString() + '<br>SideA: ' + sideANames + '<br>SideB: ' + sideBNames + '<br>Outcome: ' + outcomeDict[testData.data[i].outcome]);
+      markerLayers.addLayer(marker);
+      heatmap.pushData(testData.data[i].lat, testData.data[i].lon, testData.data[i].value
+      
+);
+    }
+
+     // var heatmapLayer = L.TileLayer.heatMap({
+      //	radius: 20,
+//	opacity: 0.8,
+//	gradient: {
+  //                      0.45: "rgb(0,0,255)",
+    //                    0.55: "rgb(0,255,255)",
+      //                  0.65: "rgb(0,255,0)",
+        //                0.95: "yellow",
+          //              1.0: "rgb(255,0,0)"
+        //            }
+      //});
+      //console.log(heatmapLayer);
+      //heatmapLayer.setData(testData.data);
+
+      var overlayMaps = {'Fatalities': heatmap, 'Markers': markerLayers};
+
+      var controls = L.control.layers(null, overlayMaps, {collapsed: true});
+
+      var map = new L.Map('map', {center: new L.LatLng(51.505, -0.09), zoom: 2, layers: [baseLayer, heatmap]});
+
+      controls.addTo(map);
+
+      
+
+
+
+      for (var i = 1; i<battleData.length; i++){
+	//L.marker([battleData[i].latitude, battleData[i].longitude]).bindPopup("battlehere").addTo(map);
+	//L.marker([51.5, -0.09]).bindPopup("Battle Here").addTo(map);
+	//L.marker([51.6, -0.10]).bindPopup("Battle here too").addTo(map);
+
+      }
+      //console.log(battleData);
+    </script>
+  </body>
+</html>
+

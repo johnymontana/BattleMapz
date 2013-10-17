@@ -1,0 +1,186 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.css" />
+    <link rel="stylesheet" href="css/crosslet.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" rel="stylesheet">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.2/underscore-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.0.1/d3.v3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.2/backbone-min.js"></script>
+    <script type="text/javascript" src="js/crosslet.js"></script>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="row">
+	<div class="span12">
+	  <div id="map">
+	  </div>
+	</div>
+      </div>
+    </div>
+  <script>
+    var axisf=function(){ return function(d){return Math.round(d*10)/10+"%";}};
+var yearsf =function(){ return Math.round};
+
+var config = {
+  map: {
+    leaflet: {
+      key: "ab7393729f6047c695f84e4a00d4a876",
+      styleId: 2//3//64657
+    },
+    view: {
+      center: [35.0, 0.1],
+      zoom: 2
+    },
+    geo: {
+      url: "data/world.topo.json",
+      name_field: "NAME",
+      id_field: "NAME",
+      topo_object: "world"
+    }
+  },
+  data: {
+    version: "1.0",
+    id_field: "Country"
+  },
+  dimensions: {
+    cinc: {
+      title: "Composite Index of National Capability",
+      data: {
+        //colorscale: d3.scale.linear().domain([-1500, 5, 200]).range([ "red", "yellow","green"]).interpolate(d3.cie.interpolateLab),
+        dataSet: "nmc_data.tsv",
+        field: "CINC",
+	method: d3.tsv,
+	ticks: [0,1,5,30,150],
+	exponent: 0.1
+
+      },
+      //format: {
+      //  short: function() {return Math.round},
+      //  input: function() {return Math.round},
+
+     //}
+      
+    },
+
+    milex: {
+      title: "Average Military Expenditure",
+      data: {
+	dataSet: "milex_data.tsv",
+	field: "milex",
+	exponent: 0.1,
+	ticks: 0
+	
+      },
+      format: {
+	//short: function() {return Math.round},
+	input: function() {return Math.round}
+
+      }
+      
+
+    },
+
+    milper: {
+      title: "Average Military Personnel",
+      data: {
+	dataSet: "milper_data.tsv",
+	field: "milper",
+	exponent: 0.1
+      }
+    },
+
+    rel_fatality: {
+      title: "Relative fatality per war",
+      data: {
+	dataSet: "rel_fatality_data.tsv",
+	field: "rel_fatality",
+	exponent: 0.1
+      }
+    },
+
+    fatality: {
+      title: "Average fatality per war",
+      data: {
+	dataSet: "fatality_data.tsv",
+	field: "fatality",
+	exponent: 0.1,
+	colorscale: d3.scale.linear().domain([1, 10, 20]).range([ "red", "yellow","green"]).interpolate(d3.cie.interpolateLab),
+
+
+      }
+
+    } 
+//    gdp: {
+//      title: "GDP per capita, $",
+//      data: {
+//        colorscale: d3.scale.linear().domain([1, 10, 20]).range([ "red", "yellow","green"]).interpolate(d3.cie.interpolateLab),
+//        dataSet: "data/data.tsv",
+//        field: "gdp",
+//        exponent:0.4,
+//        ticks: [2000,10000,25000,50000,80000]
+//
+//      },
+//      format: {
+//        short: function(){return function(d) {return "$"+d3.format(",")(Math.round(d))}},
+//
+ //       input: function(){return Math.round},
+//        axis: function(){return function(d) {return "$"+Math.round(d/1000)+"k"}},
+//
+//      }
+//    
+//    },  
+//    gini: {
+//      title: "Gini coefficient",
+//      data: {
+        //colorscale: d3.scale.linear().domain([1, 10, 20]).range([ "red", "yellow","green"]).interpolate(d3.cie.interpolateLab),
+//        dataSet: "data/data.tsv",
+//        field: "gini"
+//      },
+//    },
+//    le: {
+//      title: "Life expectancy, years",
+//      data: {
+//        colorscale: d3.scale.linear().domain([1, 10, 20]).range([ "red", "yellow","green"]).interpolate(d3.cie.interpolateLab),
+//        dataSet: "data/data.tsv",
+//        field: "life_expectancy",
+//        exponent: 2.4
+//      },
+//      format:{
+//        short: function(dd) { return function(d){return Math.round(d)+" years"}},
+//        long: function(dd) { return function(d){return Math.round(d)+" years"}},
+//        input: function() {return Math.round},
+//        axis: function(dd) { return function(d){return Math.round(d)+"y"}},
+//
+//      }
+//    },
+//    democracy: {
+//      title: "Democracy Index",
+//      data: {
+//        colorscale: d3.scale.linear().domain([1, 10, 20]).range([ "red", "yellow","green"]).interpolate(d3.cie.interpolateLab),
+//        dataSet: "data/data.tsv",
+//        field: "democracy_2011",
+//      },
+//    },  
+           
+  },
+  defaults: {
+    //colorscale: d3.scale.linear().domain([1, 10, 20]).range(["green", "yellow", "red"]).interpolate(d3.cie.interpolateLab),
+    opacity: 0.9,
+    order: ["cinc", "milex", "milper", "rel_fatality", "fatality"],
+    active: "cinc"
+  },
+};
+
+console.log(config);
+new crosslet.MapView($("#map"),config);
+
+  </script>
+
+  </body>
+</html>
