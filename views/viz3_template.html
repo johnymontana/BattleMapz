@@ -68,6 +68,8 @@ nv.addGraph(function() {
   chart = nv.models.scatterPlusLineChart()
                 .showDistX(true)
                 .showDistY(true)
+		.showXAxis(false)
+		.showYAxis(false)
                 .transitionDuration(300)
                 .color(d3.scale.category10().range());
 
@@ -107,7 +109,7 @@ function loadFatalityData() {
 	y: Number(scatter_data[i].fatality),
 	size: 1,
 	shape: 'circle',
-	tooltip: "name of country here"
+	tooltip: scatter_data[i].country
       })
     }
   }
