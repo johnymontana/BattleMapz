@@ -132,7 +132,7 @@
 	<div class="tab-pane fade" id="vis_1">
 	  <h3>Fatality heatmap of militarized inter-state disputes 1816-2001</h3>
 	   Source: Correlates of War <a href="http://www.correlatesofwar.org/COW2%20Data/MIDLOC/MIDLOC_v1.1.html">MIDLOC v1.1 </a> and <a href="http://www.correlatesofwar.org/COW2%20Data/MIDs/MID310.html">MID v3.10</a>
-	  <p><iframe style="border: 0px;" src="/viz1" height="550" width="1200" scrolling="no"></iframe></p>
+	  <p><iframe style="border: 0px;" src="/viz1" height=700 width=900 scrolling="yes"></iframe></p>
 	  <div class="panel panel-primary">
 	    <div class="panel-heading">
 	      <h3 class="panel-title">About Visual #1</h3>
@@ -151,7 +151,7 @@
 	   Source: Correlates of War <a href="http://www.correlatesofwar.org/COW2%20Data/WarData_NEW/WarList_NEW.html">Interstate War Data v4.0</a> and <a href="http://www.correlatesofwar.org/COW2%20Data/Capabilities/nmc4.htm">National Material Capabilities Index</a>
 
 
-	  <p><iframe style="border: 0px;" src="/viz2" height="550" width="1200" scrolling="no"></iframe></p>
+	  <p><iframe style="border: 0px;" src="/viz2" height="550" width="900" scrolling="no"></iframe></p>
 	  <div class="panel panel-primary">
 	    <div class="panel-heading">
 	      <h3 class="panel-title">About Visual #2</h3>
@@ -172,15 +172,40 @@
 	</div> <!-- / .tab-pane -->
 
 	<div class="tab-pane fade" id="vis_3">
-	  <h3>Rate of job openings in Missoula, MT by Industry</h3>
-	  Source: <a href="ftp://ftp.bls.gov/pub/time.series/jt/">BLS Job Openings and Labor Turnover Survey (JOLTS)</a>
+	  <h3>Fatalities vs National Capabilities Index</h3>
+	  Source: Correlates Of War <a href="http://www.correlatesofwar.org/COW2%20Data/Capabilities/nmc4.htm">National Material Capabilities v4.0</a> and <a href="http://www.correlatesofwar.org/COW2%20Data/WarData_NEW/WarList_NEW.html">Interstate War Data v4.0</a> | size of circle = military expenditures
 
-	  <iframe style="border: 0px;" src="/viz3" height="550" width="900" scrolling="no"></iframe> 
+	  <iframe style="border: 0px;" src="/viz4" height="550" width="900" scrolling="no"></iframe> 
 	  <div class="panel panel-primary">
 	    <div class="panel-heading">
 	      <h3 class="panel-title">About Visual #3</h3>
 	    </div>
 	    <div class="panel-body">
+
+	     	<table border="1">
+		  <tr>
+		    <td><b>p-value:</b></td>
+		    <td>0.0003</td>
+		  </tr>
+		  <tr>
+		    <td><b>r^2:</b></td>
+		    <td>0.0403</td>
+		  </tr>
+		  <tr>
+		    <td><b>Slope: </b></td>
+		    <td>1742839.37</td>
+		  </tr>
+		  <tr>
+		    <td><b>Intercept: </b></td>
+		    <td>31011.72</td>
+		  </tr>
+	      </table>
+ 
+
+0.110738815612
+0.00790506410342
+-1.9471404514
+0.449949974917
 	      <p>In this visual we encounter data that is not consistent with our hypothesis: on average it appears the job openings for food manufacturing are higher than computer programming suggesting it might be easier to find and maintain a job in the food manufacturing industry.</p>
 
 	      <p> This graphic maintains graphical integrity by adjusting values to take into account the size of industry: instead of showing the number of job openings, the number of openings is divded by overall employment in the industry resulting in a job opening rate.</p>
@@ -190,16 +215,45 @@
 	</div> <!-- /.tab-pane -->
 
 	<div class="tab-pane fade" id="vis_4">
-	  <h3>Changes In Employment And Salary in Missoula, MT by Industry, 2001-2012</h3>
-	  Source: <a href="ftp://ftp.bls.gov/pub/special.requests/cew/">BLS Cenus Of Employment And Wages</a>
+	   <h3>Fatalities vs National Capabilities Index</h3>
+	  Source: Correlates Of War <a href="http://www.correlatesofwar.org/COW2%20Data/Capabilities/nmc4.htm">National Material Capabilities v4.0</a> and <a href="http://www.correlatesofwar.org/COW2%20Data/WarData_NEW/WarList_NEW.html">Interstate War Data v4.0</a> | size of circle = number of fatalities
 
-	  <iframe style="border: 0px;" src="/viz3" height="550" width="1200" scrolling="no"></iframe> 
+	  <iframe style="border: 0px;" src="/viz3" height="550" width="900" scrolling="no"></iframe> 
 	  <div class="panel panel-primary">
 	    <div class="panel-heading">
 	      <h3 class="panel-title">About Visual #4</h3>
 	    </div>
 	    <div class="panel-body">
-	      <p>This visual attempts to show similar data as that presented in Visuals #1 and #2: on the x-axis the percent change in the number of workers in the industry and on the y-axis the percent change in inflation adjusted annual earnings, both from 2001-2012. This graphic shows data consitent with our hypotheis: average food manufacturing inflation-adjusted earnings have <strong>declined</strong> by 26.63% while average computer programming inflation-adjusted earnings have increaded by 32.88%. Similarly, industry size (as measured by number of people employed in that industry) has increased for food manufacturing by 2.69% while the computer programming industry has incrased by a much larger 117.31%. Consistent with our hypotheis: it is much better to be employed in an industry that is growing rapidly with increasing average salaries.</p>
+	      <p>
+		
+		<table border="1">
+		  <tr>
+		    <td><b>p-value:</b></td>
+		    <td>0.1107</td>
+		  </tr>
+		  <tr>
+		    <td><b>r^2:</b></td>
+		    <td>0.0079</td>
+		  </tr>
+		  <tr>
+		    <td><b>Slope: </b></td>
+		    <td>-1.9471</td>
+		  </tr>
+		  <tr>
+		    <td><b>Intercept: </b></td>
+		    <td>0.4499</td>
+		  </tr>
+	      </table>
+
+    
+
+	
+		0.000282212432675
+0.0403035988368
+1742839.37419
+31011.7187592
+
+This visual attempts to show similar data as that presented in Visuals #1 and #2: on the x-axis the percent change in the number of workers in the industry and on the y-axis the percent change in inflation adjusted annual earnings, both from 2001-2012. This graphic shows data consitent with our hypotheis: average food manufacturing inflation-adjusted earnings have <strong>declined</strong> by 26.63% while average computer programming inflation-adjusted earnings have increaded by 32.88%. Similarly, industry size (as measured by number of people employed in that industry) has increased for food manufacturing by 2.69% while the computer programming industry has incrased by a much larger 117.31%. Consistent with our hypotheis: it is much better to be employed in an industry that is growing rapidly with increasing average salaries.</p>
 
 	      <p>Graphical integrity is maintained in this graphic by ensuring the time periods used for computing changes are consistent across both axes, adjusting salary data for inflation, and plotting percent changes instead of value changes. Data density is maximized, without losing meaning with the help of interactive tool-tip like detail information display.</p>
 	    </div>

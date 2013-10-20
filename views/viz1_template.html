@@ -70,10 +70,11 @@
 
       var baseLayer = L.tileLayer('http://{s}.tile.cloudmade.com/ab7393729f6047c695f84e4a00d4a876/997/256/{z}/{x}/{y}.png', { attribution: 'BattleMapz', minZoom: 2, maxZoom: 18});
 
+    var markerLayers = new L.MarkerClusterGroup();
     var heatmap = new L.TileLayer.HeatCanvas({}, {'step':0.3, 'degree': HeatCanvas.LINEAR, 'opacity': 0.7});
 
     //var markerLayers = new L.LayerGroup();
-    var markerLayers = new L.MarkerClusterGroup();
+    //var markerLayers = new L.MarkerClusterGroup();
 
     for (var i=0; i<testData.data.length; i++){
       var marker = new L.Marker(new L.LatLng(testData.data[i].lat, testData.data[i].lon));
@@ -109,11 +110,11 @@
       //console.log(heatmapLayer);
       //heatmapLayer.setData(testData.data);
 
-      var overlayMaps = {'Fatalities': heatmap, 'Markers': markerLayers};
+      var overlayMaps = {'Dispute Markers': markerLayers, 'Fatality Heatmap': heatmap};
 
-      var controls = L.control.layers(null, overlayMaps, {collapsed: true});
+      var controls = L.control.layers(null, overlayMaps, {collapsed: false, autoZIndex: true});
 
-      var map = new L.Map('map', {center: new L.LatLng(51.505, -0.09), zoom: 2, layers: [baseLayer, heatmap]});
+      var map = new L.Map('map', {center: new L.LatLng(51.505, -0.09), zoom: 2, layers: [baseLayer]});
 
       controls.addTo(map);
 

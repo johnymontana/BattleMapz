@@ -31,7 +31,8 @@ var config = {
   map: {
     leaflet: {
       key: "ab7393729f6047c695f84e4a00d4a876",
-      styleId: 64657
+      styleId: 64657,
+      attribution: "BattleMapz"
     },
     view: {
       center: [35.0, 0.1],
@@ -50,7 +51,7 @@ var config = {
   },
   dimensions: {
     cinc: {
-      title: "Composite Index of National Capability",
+      title: "Composite Index of National Capability (x1000)",
       data: {
         //colorscale: d3.scale.linear().domain([-1500, 5, 200]).range([ "red", "yellow","green"]).interpolate(d3.cie.interpolateLab),
         dataSet: "nmc_data.tsv",
@@ -60,11 +61,11 @@ var config = {
 	exponent: 0.1
 
       },
-      //format: {
-      //  short: function() {return Math.round},
-      //  input: function() {return Math.round},
+      format: {
+        //short: function() {return Math.round},
+        input: function() {return Math.round},
 
-     //}
+     }
       
     },
 
@@ -96,24 +97,45 @@ var config = {
     },
 
     rel_fatality: {
-      title: "Relative fatality per war",
+      title: "Average fatalities per military personnel",
       data: {
 	dataSet: "rel_fatality_data.tsv",
 	field: "rel_fatality",
-	exponent: 0.1
+	exponent: 0.1,
+	//preformat: function(d){return Number(d / 1000);},
+	preformat: function(dd) {
+	  return function(d) {
+	    return d/1000;
+	  };i
+	},
+	ticks: [0, 0.01, 1, 10]
+      },
+
+      format: {
+	//short: function() {return Math.round},
+	input: function() {return Math.round}
+
       }
+
     },
 
     fatality: {
-      title: "Average fatality per war",
+      title: "Average fatalities per war",
       data: {
 	dataSet: "fatality_data.tsv",
 	field: "fatality",
 	exponent: 0.1,
-	colorscale: d3.scale.linear().domain([1, 10, 20]).range([ "red", "yellow","green"]).interpolate(d3.cie.interpolateLab),
+	ticks: [0, 100, 10000, 500000]
+	//colorscale: d3.scale.linear().domain([1, 10, 20]).range([ "red", "yellow","green"]).interpolate(d3.cie.interpolateLab),
 
+
+      },
+      format: {
+	short: function() {return Math.round},
+	input: function() {return Math.round}
 
       }
+
 
     } 
 //    gdp: {
@@ -172,7 +194,7 @@ var config = {
   defaults: {
     //colorscale: d3.scale.linear().domain([1, 10, 20]).range(["green", "yellow", "red"]).interpolate(d3.cie.interpolateLab),
     opacity: 0.9,
-    order: ["cinc", "milex", "milper", "rel_fatality", "fatality"],
+    order: ["cinc", "fatality", "rel_fatality"],
     active: "cinc"
   },
 };

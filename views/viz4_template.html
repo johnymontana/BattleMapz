@@ -74,12 +74,14 @@ nv.addGraph(function() {
 		.showLegend(false)
                 .color(d3.scale.category10().range());
 
+  chart.xAxis.scale(d3.scale.linear())
+  chart.yAxis.scale(d3.scale.linear())
   chart.xAxis.tickFormat(d3.format('.04f'));
-  chart.yAxis.tickFormat(d3.format('.04f'));
+  chart.yAxis.tickFormat(d3.format('.02f'));
   chart.xAxis.tickValues([0.0001, 0.001, 0.01, 0.1])
-  chart.yAxis.tickValues([0.0001, 0.001, 0.01, 0.1, 1, 10])
+  chart.yAxis.tickValues([0.0, 0.01, 0.1, 1, 10, 100, 1000, 1000, 100000])
   chart.xAxis.axisLabel('Composite Index of National Capability Score')
-  chart.yAxis.axisLabel('Battle related fatalities per military personnel')
+  chart.yAxis.axisLabel('Battle related fatalities')
   
 
   d3.select('#test1 svg')
@@ -111,18 +113,18 @@ function loadFatalityData() {
   //data.values = [];
 
   for (var i=1; i < all_scatter_data.length; i++) {
-    if (all_scatter_data[i].fatalities <= 0){
+    if (all_scatter_data[i].milex <= 0){
       var size_ex = 1;
     }
 
     else {
-      var size_ex = all_scatter_data[i].fatalities;
+      var size_ex = all_scatter_data[i].milex;
     }
     
     if (all_scatter_data[i].milper && all_scatter_data[i].milper > 0 && all_scatter_data[i].cinc > 0){
       data[0].values.push({
 	x: Number(all_scatter_data[i].cinc),
-	y: Number(Number(all_scatter_data[i].fatalities) / Number(all_scatter_data[i].milper) / 1000)+ 0.0000001,
+	y: Number(Number(all_scatter_data[i].fatalities)+ 0.0000001),
 	size: size_ex,
 	shape: 'circle',
 	tooltip: '<p style="text-align: left;"><b>War:</b> ' + all_scatter_data[i].name + '<br><b>State: </b>' + all_scatter_data[i].state + '<br><b>Fatalities: </b>' + all_scatter_data[i].fatalities + '<br><b>Military Personnel: </b>' + all_scatter_data[i].milper * 1000 + '<br><b>Outcome:</b>' + all_scatter_data[i].outcome + '</p>'
