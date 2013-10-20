@@ -60,6 +60,10 @@ app.get('/viz4', function(req, res) {
   res.render('viz4_template', {});
 });
 
+app.get('/project', function(req, res){
+  res.render('projections_template', {});
+});
+
 var listen = function(callback) {
   app.listen(port, function() {
     console.log("Listening on " + port);

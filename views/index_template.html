@@ -12,6 +12,10 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
 
 
 
@@ -74,7 +78,8 @@
       <div id="myTabContent" class="tab-content">
 
         <div class="tab-pane fade in active" id="overview">
-	  <br><p>Content here</p> 
+	  <br><p>Content here When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</p> 
 	</div>
 
 
@@ -93,9 +98,9 @@
 
 	<div class="tab-pane fade" id="bad_vis">
 
-	  <a href="http://www.businessinsider.com/the-state-of-media-employment-2013-1?op=1">From Business Insider</a><br>
+	  <a href="http://www.stratasan.com/bad-maps-apples-map-app-and-poor-cartographic-design/">From Stratasan blog post</a><br><br>
 
-	  <img src="http://static.businessinsider.com/image/51098602eab8eab75800001c-1200/employment-in-the-bookperiodicalmusic-industry-has-been-on-a-steady-downward-trend-and-in-2011-the-bottom-completely-fell-out-of-the-industry.jpg">
+	  <img src="img/BadMap_Capitals.jpg" width=900><br><br>
 
 	  <div class="panel panel-danger">
 	    <div class="panel-heading">
@@ -114,8 +119,7 @@
 
 
 	<div class="tab-pane fade" id="good_vis">
-	  <a href="http://blog.futureadvisor.com/explore-changes-in-wages-and-employment-across-industries/">From FutureAdvisor blog</a>
-	  <p><iframe style="border: 0px;" src="http://bl.ocks.org/ameliagreenhall/raw/d30a9ceb68f5b0fc903c/" height=600 width=600 scrolling="no"></iframe></p>
+	  <a href="http://www.nytimes.com/interactive/2012/08/24/us/drought-crops.html" target="_blank">New York Times Article: Drought Extends, Crops Wither</a>
 
 
 	  <div class="panel panel-success">
@@ -132,7 +136,7 @@
 	<div class="tab-pane fade" id="vis_1">
 	  <h3>Fatality heatmap of militarized inter-state disputes 1816-2001</h3>
 	   Source: Correlates of War <a href="http://www.correlatesofwar.org/COW2%20Data/MIDLOC/MIDLOC_v1.1.html">MIDLOC v1.1 </a> and <a href="http://www.correlatesofwar.org/COW2%20Data/MIDs/MID310.html">MID v3.10</a>
-	  <p><iframe style="border: 0px;" src="/viz1" height=700 width=900 scrolling="yes"></iframe></p>
+	  <p><iframe style="border: 0px;" src="/viz1" height=550 width=900 scrolling="yes"></iframe></p>
 	  <div class="panel panel-primary">
 	    <div class="panel-heading">
 	      <h3 class="panel-title">About Visual #1</h3>
@@ -151,7 +155,7 @@
 	   Source: Correlates of War <a href="http://www.correlatesofwar.org/COW2%20Data/WarData_NEW/WarList_NEW.html">Interstate War Data v4.0</a> and <a href="http://www.correlatesofwar.org/COW2%20Data/Capabilities/nmc4.htm">National Material Capabilities Index</a>
 
 
-	  <p><iframe style="border: 0px;" src="/viz2" height="550" width="900" scrolling="no"></iframe></p>
+	  <p><iframe style="border: 0px;" src="/viz2" height="550" width="1000" scrolling="no"></iframe></p>
 	  <div class="panel panel-primary">
 	    <div class="panel-heading">
 	      <h3 class="panel-title">About Visual #2</h3>
@@ -266,7 +270,13 @@ This visual attempts to show similar data as that presented in Visuals #1 and #2
 
 
 	<div class="tab-pane fade" id="nerds">
-	 <p> Data visualizations on this page were created with <a href="https://github.com/shutterstock/rickshaw">Rickshaw</a>, a charting library built on top of <a href="http://d3js.org/">D3</a>, a javascript library for creating "data driven documents".</p>
+	   <h3>Fatalities vs National Capabilities Index</h3>
+	  Source: Correlates Of War <a href="http://www.correlatesofwar.org/COW2%20Data/Capabilities/nmc4.htm">National Material Capabilities v4.0</a> and <a href="http://www.correlatesofwar.org/COW2%20Data/WarData_NEW/WarList_NEW.html">Interstate War Data v4.0</a> | size of circle = number of fatalities
+	 
+ <iframe style="border: 0px;" src="/project" height="550" width="1000" scrolling="no"></iframe> 
+
+
+<p> Data visualizations on this page were created with <a href="https://github.com/shutterstock/rickshaw">Rickshaw</a>, a charting library built on top of <a href="http://d3js.org/">D3</a>, a javascript library for creating "data driven documents".</p>
 
 	  <p><a href="http://www.mongodb.org/">MongoDB</a> was used to help with data analysis and fetching.</p>
 
