@@ -70,27 +70,27 @@
         <li><a href="#vis_2" data-toggle="tab">Visual #2</a></li>
 	<li><a href="#vis_3" data-toggle="tab">Visual #3</a></li>
 	<li><a href="#vis_4" data-toggle="tab">Visual #4</a></li>
-	<li><a href="#anal" data-toggle="tab">Analysis</a></li>
-	<li><a href="#nerds" data-toggle="tab">About</a></li>
+	<li><a href="#analysis" data-toggle="tab">Analysis</a></li>
   
 
     </ul>
       <div id="myTabContent" class="tab-content">
 
         <div class="tab-pane fade in active" id="overview">
-	  <br><p>Content here When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
-$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</p> 
+	  <br><p>NOTE: This page may take several moments to load and may become unresponsive while rendering. Please be patient. If you want to know why it is slow: numbers are being crunched client-side in javascript.</p> 
+
+	  <p>This project explores the relationship between power (rosources at the disposal of a country) and fatalities suffered during inter-state militarized disputes. All data comes from the <a href="http://www.correlatesofwar.org/Datasets.htm">Correlates of War Project datasets.</a></p>
 	</div>
 
 
 	<div class="tab-pane fade" id="hypothesis">
-	  <br><p>Content here</p>
+	  <br><p>Some justification for hypothesis. Better military technology (drones, missles, etc). More incentive / access to pursue diplomatic means of mediation that battle, protect infrasstructure and political power before going to war.</p>
 	  <div class="panel panel-info">
 	    <div class="panel-heading">
-	      <h3 class="panel-title">Title here</h3>
+	      <h3 class="panel-title">Hypothesis</h3>
 	    </div>
 	    <div class="panel-body">
-	    <p>Hypothesis text here </p>
+	    <p>Countries with increasing levels of resources experience decreasing levels of fatalities per war.</p>
 	    </div>
 	  </div>
 
@@ -107,11 +107,7 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</p>
 	      <h3 class="panel-title">Why this is a bad visual</h3>
 	    </div>
 	    <div class="panel-body">
-	      <p>This visual shows employment in book, periodical and music stores from 2001-2011. This visual is a bad example because it uses a non-standard method to display time-series data. With time-series data typically the x-axis is used to represent time. Instead this visual uses the x-axis to show employment levels. Time is represented only by a label on the scatter plots themselves. This results in initial confusion: at first glance, employment in book stores appears to be <strong>growing</strong> linearly. After orienting themselves to the visual, the viewer is able to discern that in fact employment in the industry is <strong>shrinking</strong> linearly.</p>
-
-	      <p>
-	      I also find the use of the size of bubble to represent average employment per establishment troubling. In general this is a good idea as it allows the visual to convey another dimension of information, however the way this is implemented in this visual is less than ideal. Because average employment per establishment is essentially the x-axis value divided by the y-axis value and since the overall size of the industry has been changing linearly, the average employment per establishment has been relatively unchanged. Therefore, all bubbles appear to be the same size. This leaves the viewer confused. "Am I missing something?" the viewer wonders.
-	      </p>
+	      <p>This visual seems to have a good map projection and dataset, but does a poor job of implementation. The legend gives no indication of the units used for population. At first, I thought the units were million of people, however after some quick scrutiny that is clearly not the case. The use of circle overlays in itself is not bad, however the way this visual has moved the overlays aside to allow labeling is problematic. If the intent is to show population density, then keeping the circle overlays positioned geographically correctly is key. Moving them aside only distorts the data being displayed, while not adding much value to the labeling. Instead, the circles should have been kept centered over the city they represent with labeling done inside the circle when needed. This would have more clearly shown population density per geographic region.</p>
 	    </div>
 	  </div>
 
@@ -119,15 +115,21 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</p>
 
 
 	<div class="tab-pane fade" id="good_vis">
-	  <a href="http://www.nytimes.com/interactive/2012/08/24/us/drought-crops.html" target="_blank">New York Times Article: Drought Extends, Crops Wither</a>
-
+	  
+	  <br>See also: <a href="http://www.gapminder.org/world/#$majorMode=map$is;shi=t;ly=2003;lb=f;il=t;fs=11;al=30;stl=f;st=f;nsl=t;se=t$wst;tts=C$ts;sp=5.59290322580644;ti=2012$zpv;v=0$inc_x;mmid=XCOORDS;iid=phAwcNAVuyj1jiMAkmq1iMg;by=const$inc_y;mmid=YCOORDS;iid=phAwcNAVuyj2tPLxKvvnNPA;by=const$inc_s;uniValue=8.21;iid=phAwcNAVuyj1jiMAkmq1iMg;by=ind$inc_c;uniValue=255;gid=CATID0;by=grp$map_s;sma=49;smi=8.2$cd;bd=0$inds=" target="_blank">Gapminder's Wealth and Health Of Nations</a> and <a href="http://bost.ocks.org/mike/nations/" target="_blank">Mike Bostock's Recreation in D3</a><br><hr></br>
+	  <a href="http://mbostock.github.io/d3/talk/20111116/airports.html">Mike Bostock's Airport Example, showing Voronoi overlay</a>
+	  <iframe style="border: 0px;" src="http://mbostock.github.io/d3/talk/20111116/airports.html" height=900 width=1200 scrolling="yes"></iframe>
 
 	  <div class="panel panel-success">
 	    <div class="panel-heading">
-	      <h3 class="panel-title">Why this is a good visual</h3>
+	      <h3 class="panel-title">Why these are good visuals</h3>
 	    </div>
 	    <div class="panel-body">
-	      <p>I find this data visualization particularly appealing. It allows for the type of comparison across industry that is the focus of my hypothesis for this project. Consistent with Tufte's principle of maximizing the "data-ink ratio" there is quite a bit of information being displayed in this single graphic. Interactive features allow the viewer to select industries to view detailed information or zoom in on a section of the chart to compare industries. This level of interactivity allows the visualization to maximize data density, without losing legibility or information since the user can zoom in and/or select individual points for more information. Some visuals use interactive features as a gimmick, resulting in chartjunk or focusing on design rather than the actual display of data, however I think this visual provides the right level of interactivity without impacting graphical integrity. This graphic became an inspiration for me as I moved forward with the project and indeed Visual #4 is an attempt to reproduce this graphic and some of the interactive features, but with data pertinent to the investigation of our hypothesis. </p>
+	     <h4>Wealth and Health of Nations</h4>
+	      <p>These contrast the bad visual example to show how circle overlays can be used effectively. So much data displayed. Interactive.</p>
+
+	    <h4>Airport example</h4>
+	      <p>Again shows circle overlays, shows how hidden Voronoi overlay works for selecting an observation. Especially effective for small observations. Interactive.</p>
 	    </div>
 	  </div>
 
@@ -142,9 +144,16 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</p>
 	      <h3 class="panel-title">About Visual #1</h3>
 	    </div>
 	    <div class="panel-body">
-	      <p>This visual shows average annual earnings in Missoula, MT for the food manufacturing and custom computer programming industries from 1990-2012. To maintain graphical integrity and avoid distortions all values are adjusted for inflation by converting to 2012 equivalent dollars using the Consumer Price Index. </p>
-
-	      <p>This graph shows data consistent with our hypothesis: it is clear that average annual earnings in the computer programming industry have been growing steadily while food manufacturing salaries have not even been keeping up with inflation. It is interesting to note that as recently as 2000 food manufacturing on average paid more than computer programming, but since then salaries have diverged dramatically.</p>
+	      <h4>Dataset</h4>
+	      <p>Describe dataset used - long lat, etc</p>
+	      <h4>Fatality heatmap</h4>
+	      <p>This visual uses a heatmap overlay to highlight battle related fatality levels throughout the world. The value of each pixel displayed on the map is defined by its distance to a point that holds data (in this case fatality level for a dispute): \(v=\sum{f_{i} - s*d^w}\) where \(v\) = value of the pixel, \(f_i\) = fatality level for observation \(i\), \(d\) = distance from observation \(i\),  \(s\)=0.1 , and \(w\) = 3. The color of the pixel is then determined from the value \(v\) by a color scheme function. </p>
+	      <h4>Dispute markers</h4>
+	      <p>Info about dispute markers here</p>
+	      <h4>Conclusions</h4>
+	      <p>Conclusions reached from this visual, problems with it and motivation for visual #2</p>
+	      <h4>How Created</h4>
+	      <p>Info about libraries used, maybe a table?. Spherical Mercator projection.</p>
 	    </div>
 	  </div>
 	</div> <!-- /.tab-pane -->
@@ -161,13 +170,16 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</p>
 	      <h3 class="panel-title">About Visual #2</h3>
 	    </div>
 	    <div class="panel-body">
-	      <p>Number of establishments per industry is used as a measurement of industry size in this graphic. I debated plotting a growth rate, rather than the actual number of establishments, however I felt that since the initial size of the industries were similar any conversion to a growth rate would not add any benefit and might further distort interpretation of the data.</p>
+	      <h4>Dataset</h4>
+	      <p>Used war v4.0 and CINC. What is CINC. What new data is in war v4.0 that we didn't have in visual #1</p>
+	      <h4>Crossfilter map</h4>
+	      <p>What three variables are being plotted. How to use crossfilters. </p>
 
-	      <p>We can see that initally food manufacturing is a larger industry, however computer programming quickly grows to dwarf the food manufacturing industry. This is consistent with our hypotheis: it is better to be employed in an industry that is consistently growing, rather than one that is stagnant.</p>
-	      
-	      <p>It is also important to note that number of establishments might not be a perfect measurement of the size of an industry. Employment level, the number of persons employed per industry, is also available and is indeed used in Visual #4. </p>  
+	      <h4>Conclusions</h4>
+	      <p>By selecting upper region of CINC we see lower fatalities per military personnel. Similarly for lower region. Problem: collapsing the time dimension, using time averages of CINC and size of military. Would be more useful to see data relative to the time the war occured. Not conclusive. Motivation for scatterplots.</p>
 
-
+	      <h4>How Created</h4>
+	      <p>Table? Crossfilter, D3, leaflet</p>
 	  </div>
 
     
@@ -185,8 +197,8 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</p>
 	      <h3 class="panel-title">About Visual #3</h3>
 	    </div>
 	    <div class="panel-body">
-
-	     	<table border="1">
+		<table border="1" style="float: right;">
+		  <tr><th colspan=2>Regression Summary Stats</th></tr>
 		  <tr>
 		    <td><b>p-value:</b></td>
 		    <td>0.0003</td>
@@ -204,15 +216,18 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</p>
 		    <td>31011.72</td>
 		  </tr>
 	      </table>
- 
 
-0.110738815612
-0.00790506410342
--1.9471404514
-0.449949974917
-	      <p>In this visual we encounter data that is not consistent with our hypothesis: on average it appears the job openings for food manufacturing are higher than computer programming suggesting it might be easier to find and maintain a job in the food manufacturing industry.</p>
 
-	      <p> This graphic maintains graphical integrity by adjusting values to take into account the size of industry: instead of showing the number of job openings, the number of openings is divded by overall employment in the industry resulting in a job opening rate.</p>
+		<h4>Dataset</h4>
+		<p>Same data as previous visual. What is being plotted</p>
+
+		<h4>Conclusions</h4>
+		<p>Inconsistent with hypotheis. Problem: not accounting for size of military. Motivation for visual 4.</p>
+
+		<h4>How Created</h4>
+		<p>D3, log scale, regressions done with scipy Python, node.js javascript and sift used for parsing data (link to calc_data.js source on Github)</p>
+	     	 
+
 	    </div>
 	  </div>
 
@@ -228,9 +243,9 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</p>
 	      <h3 class="panel-title">About Visual #4</h3>
 	    </div>
 	    <div class="panel-body">
-	      <p>
-		
-		<table border="1">
+	      
+	<table border="1" style="float: right;">
+		  <tr><th colspan=2>Regression Summary Stats</th></tr>
 		  <tr>
 		    <td><b>p-value:</b></td>
 		    <td>0.1107</td>
@@ -248,18 +263,18 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</p>
 		    <td>0.4499</td>
 		  </tr>
 	      </table>
-
-    
-
 	
-		0.000282212432675
-0.0403035988368
-1742839.37419
-31011.7187592
 
-This visual attempts to show similar data as that presented in Visuals #1 and #2: on the x-axis the percent change in the number of workers in the industry and on the y-axis the percent change in inflation adjusted annual earnings, both from 2001-2012. This graphic shows data consitent with our hypotheis: average food manufacturing inflation-adjusted earnings have <strong>declined</strong> by 26.63% while average computer programming inflation-adjusted earnings have increaded by 32.88%. Similarly, industry size (as measured by number of people employed in that industry) has increased for food manufacturing by 2.69% while the computer programming industry has incrased by a much larger 117.31%. Consistent with our hypotheis: it is much better to be employed in an industry that is growing rapidly with increasing average salaries.</p>
+		<h4>Dataset</h4>
+		<p>Same data as previous visual. What is being plotted</p>
 
-	      <p>Graphical integrity is maintained in this graphic by ensuring the time periods used for computing changes are consistent across both axes, adjusting salary data for inflation, and plotting percent changes instead of value changes. Data density is maximized, without losing meaning with the help of interactive tool-tip like detail information display.</p>
+		<h4>Conclusions</h4>
+		<p>Inconsistent with hypotheis. Problem: not accounting for size of military. Motivation for visual 4.</p>
+
+		<h4>How Created</h4>
+		<p>D3, log scale, regressions done with scipy Python, node.js javascript and sift used for parsing data (link to calc_data.js source on Github)</p>
+
+		
 	    </div>
 	  </div>
 
@@ -269,65 +284,21 @@ This visual attempts to show similar data as that presented in Visuals #1 and #2
 
 
 
-	<div class="tab-pane fade" id="nerds">
-	   <h3>Fatalities vs National Capabilities Index</h3>
-	  Source: Correlates Of War <a href="http://www.correlatesofwar.org/COW2%20Data/Capabilities/nmc4.htm">National Material Capabilities v4.0</a> and <a href="http://www.correlatesofwar.org/COW2%20Data/WarData_NEW/WarList_NEW.html">Interstate War Data v4.0</a> | size of circle = number of fatalities
+	<div class="tab-pane fade" id="analysis">
+	   <h3>Map Projections</h3>
+	  Source:  <a href="http://bl.ocks.org/mbostock/3711652">This demo</a> was created by <a href="http://bost.ocks.org/mike/">Mike Bostock</a> to showcase the map projections available in <a href="http://www.d3js.org">D3</a>
 	 
  <iframe style="border: 0px;" src="/project" height="550" width="1000" scrolling="no"></iframe> 
+	    <h4>Projections shown so far</h4>
+	    <p>Were all Mercator - limits of Leaflet. Distortion. So will describe: Hammer, ??, ??</p>
+	    <h4>Lambert-Azimuthal Equal-Area Projection</h4>
+	    <p>Equations. I picked this one simply because polar aspect of this projection is the UN logo :-). What does Azimutal mean? What does equal-area mean? D3 example.</p>
+	
+	    <h4>Hammer</h4>
+	    <p>Extension of Lambert-Azimuthal. What is the difference. See example in drop-down above</p>
 
-
-<p> Data visualizations on this page were created with <a href="https://github.com/shutterstock/rickshaw">Rickshaw</a>, a charting library built on top of <a href="http://d3js.org/">D3</a>, a javascript library for creating "data driven documents".</p>
-
-	  <p><a href="http://www.mongodb.org/">MongoDB</a> was used to help with data analysis and fetching.</p>
-
-	  
-	  <p>All data came from the <a href="http://www.bls.gov">Bureau Of Labor Statistics</a></p>
-
-	  <p>Source code for this project is available on <a href="http://github.com/johnymontana/baker_vs_software">github</a></p>
-
-	  <p>Javascript code for least squares line fit:
-	  <pre>
-	  var addRegression = function(series) {
-	    var num_series = series.length;
-	    for (var i = 0; i&lt;num_series; i++) {
-	      var obj = series[i];
-	      var x = [];   
-	      var y = [];
-	      var s_x = 0;
-	      var s_y = 0;
-	      var s_xx = 0;
-	      var s_yy = 0;
-	      var s_xy = 0;
-	      for (var j = 0; j&lt;obj.data.length; j++) {
-		x.push(obj.data[j].x);
-		y.push(obj.data[j].y);
-		s_x += obj.data[j].x;
-		s_y += obj.data[j].y;
-		s_xy += obj.data[j].x * obj.data[j].y;
-		s_xx += obj.data[j].x * obj.data[j].x;
-		s_yy += obj.data[j].y * obj.data[j].y;
-	      }
-
-	      var m = (x.length * s_xy - s_x * s_y) / (x.length * s_xx - (s_x*s_x));
-	      var b = (1 / x.length) * s_y - m * (1/ x.length) * s_x;
-
-	      var obj2 = {};
-	      obj2.name = obj.name + " regression";
-	      obj2.color = obj.color;
-	      obj2.data = [];
-	      obj2.renderer = 'line';
-	      for (var k=0; k &lt; x.length; k++) {
-		obj2.data.push({x: x[k], y: (m*x[k] + b)}); 
-	      }
-    
-	      series.push(obj2);
-	    }
-	  return series;
-	}
-
-
-	  </pre>
-
+	    <h4>Spherical Mercator</h4>
+	    <p>Equations. D3 example. Used by tiled mapping libraries (like Leaflet, see visuals 1,2)</p>
 	</div>
       </div> <!-- /.tab-content-->
 
