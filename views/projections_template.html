@@ -53,7 +53,8 @@ var width = 960,
     height = 500;
 
 var options = [
-  {name: "Aitoff", projection: d3.geo.aitoff()},
+  {name: "Aitoff", projection: d3.geo.aitoff().scale(165)},
+  {name: "Azimuthal Equal Area", projection: d3.geo.azimuthalEqualArea()},
   {name: "Albers", projection: d3.geo.albers().scale(145).parallels([20, 50])},
   {name: "August", projection: d3.geo.august().scale(60)},
   {name: "Baker", projection: d3.geo.baker().scale(100)},

@@ -113,12 +113,12 @@ function loadFatalityData() {
   //data.values = [];
 
   for (var i=1; i < all_scatter_data.length; i++) {
-    if (all_scatter_data[i].milex <= 0){
+    if (all_scatter_data[i].milper <= 0){
       var size_ex = 1;
     }
 
     else {
-      var size_ex = all_scatter_data[i].milex;
+      var size_ex = all_scatter_data[i].milper;
     }
     
     if (all_scatter_data[i].milper && all_scatter_data[i].milper > 0 && all_scatter_data[i].cinc > 0){

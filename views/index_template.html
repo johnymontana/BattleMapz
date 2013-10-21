@@ -77,14 +77,16 @@
       <div id="myTabContent" class="tab-content">
 
         <div class="tab-pane fade in active" id="overview">
-	  <br><p>NOTE: This page may take several moments to load and may become unresponsive while rendering. Please be patient. If you want to know why it is slow: numbers are being crunched client-side in javascript.</p> 
+	  <br><p><b>NOTE: This page may take several moments to load and may become unresponsive while rendering. Please be patient.</b></p> 
 
 	  <p>This project explores the relationship between power (rosources at the disposal of a country) and fatalities suffered during inter-state militarized disputes. All data comes from the <a href="http://www.correlatesofwar.org/Datasets.htm">Correlates of War Project datasets.</a></p>
+
+	  <p>All source code for this project is available <a href="https://github.com/johnymontana/BattleMapz">here.</a></p>
 	</div>
 
 
 	<div class="tab-pane fade" id="hypothesis">
-	  <br><p>Some justification for hypothesis. Better military technology (drones, missles, etc). More incentive / access to pursue diplomatic means of mediation that battle, protect infrasstructure and political power before going to war.</p>
+	  <br><p>As nation-states obtain more power (money, population, technological advantages, competitive advantages resulting in favorable international trading, etc.) they have more incentive to reach peaceful resolutions of conflict, as they have more to lose by going to war. When such powerful nation-states do chose to enter a militarized inter-state dispute, they have certain advantages over less powerful nations: significant investments in military capabilities, political power that might lead to diplomatic resolutions as a result of trading partnerships and treaty alliances. Powerful coutries should have access to advanced military weaponry (drones, missles, aircraft, intelligence, assistance from treaty alliances, etc.) to which less powerful states might have access. With this asymmetry in mind, we can begin to form a hypotheis regarding fatalities suffered during militarized disputes: </p>
 	  <div class="panel panel-info">
 	    <div class="panel-heading">
 	      <h3 class="panel-title">Hypothesis</h3>
@@ -126,10 +128,10 @@
 	    </div>
 	    <div class="panel-body">
 	     <h4>Wealth and Health of Nations</h4>
-	      <p>These contrast the bad visual example to show how circle overlays can be used effectively. So much data displayed. Interactive.</p>
+	      <p>These contrast the bad visual example to show how circle overlays can be used effectively. A small amount of interaction resolves the problem of labeling. Animation is used to introduce the dimension of time to the visualizations. The Gapminder visualization contains a stunning number of indicators that can be visualized, resulting in a great exploratory visual analysis tool. </p>
 
 	    <h4>Airport example</h4>
-	      <p>Again shows circle overlays, shows how hidden Voronoi overlay works for selecting an observation. Especially effective for small observations. Interactive.</p>
+	      <p>Again shows circle overlays used effectively, contrasting with the poor implementation of circle overlays in the Bad Visual example.  This visual also shows how the technique of a hidden Voronoi overlay works for selecting an observation on mouseover. This technique, especially effective for small observation points on a circle overlay, is commonly used in D3 visuals to add an interactive component.</p>
 	    </div>
 	  </div>
 
@@ -145,15 +147,21 @@
 	    </div>
 	    <div class="panel-body">
 	      <h4>Dataset</h4>
-	      <p>Describe dataset used - long lat, etc</p>
+	      <p>This visual makes use of the Correlates of War Militarized Interstate Dispute Dataset v3.10 (MID) and the Militarized Interstate Dispute Location Dataset v1.1 (MIDLOC). The MID dataset contains data on inter-state disputes from 1816-2001, including the level of battle related fatalities suffered by all states (combined). The levels are None, 1-25, 26-100, 101-250, 251-500, 501-999 and more than 999 deaths. Precise fatality data is sparse for this dataset and threfore was not used. The MIDLOC dataset contains the precise longitude and latitude of the onset of most disputes in the MID dataset (location data is available for 2240 of the 2332 disputes contained in the MID dataset. Observations lacking location data and/or fatality data are excluded.</p>
 	      <h4>Fatality heatmap</h4>
 	      <p>This visual uses a heatmap overlay to highlight battle related fatality levels throughout the world. The value of each pixel displayed on the map is defined by its distance to a point that holds data (in this case fatality level for a dispute): \(v=\sum{f_{i} - s*d^w}\) where \(v\) = value of the pixel, \(f_i\) = fatality level for observation \(i\), \(d\) = distance from observation \(i\),  \(s\)=0.1 , and \(w\) = 3. The color of the pixel is then determined from the value \(v\) by a color scheme function. </p>
 	      <h4>Dispute markers</h4>
-	      <p>Info about dispute markers here</p>
+	      <p>Map annotations are plotted for each dispute showing summary information. An annotation clustering library is used to help manage overlapping map annotations.</p>
 	      <h4>Conclusions</h4>
-	      <p>Conclusions reached from this visual, problems with it and motivation for visual #2</p>
+	      <p>This visual serves as a good exploratory visual analysis tool. The map is interactive and allows the user to zoom/scroll and view summary information for each dispute. From the initial full world view, we can see distinct "hot spots" that overshadow other areas of the world: Central America, the Middle East, and North/South Korean peninsula. This is tentatively consistent with our hypothesis: the countries in these areas have significantly less "power" than other regions of the world. This analysis is weak however: we have no measure of "power". Also, as mentioned above the fatality level tops out at 999, therefore for the heatmap observations containing 1,000,000 fatalities have the same influence as observations of 1000. Finally, MID v3.0 does not allocate fatalities per state, rather only by dispute. It is clear therefore that the current data will be insufficient for our analysis.</p>
 	      <h4>How Created</h4>
-	      <p>Info about libraries used, maybe a table?. Spherical Mercator projection.</p>
+	      <p>This visual was created using the following open-source libraries:
+		<ul>
+		  <li><a href="http://leafletjs.com/">Leaflet.js</a> - a JavaScript library for interactive maps</li>
+		  <li><a href="https://github.com/sunng87/heatcanvas">heatcanvas</a> - a JavaScript library for creating pixel based heatmaps with html5 canvas.</li>
+		  <li><a href="https://github.com/Leaflet/Leaflet.markercluster">Leaflet.markercluster</a> - provides beautiful animated marker clustering functionality for Leaflet</li>
+		</ul>
+The map displayed uses a Spherical Mercator projection, the defaul projection provided by Leaflet.</p>
 	    </div>
 	  </div>
 	</div> <!-- /.tab-pane -->
@@ -171,25 +179,30 @@
 	    </div>
 	    <div class="panel-body">
 	      <h4>Dataset</h4>
-	      <p>Used war v4.0 and CINC. What is CINC. What new data is in war v4.0 that we didn't have in visual #1</p>
+	      <p>This visual makes use of v4.0 of the Correlates Of War inter-state war data. This dataset contains number of battle related fatalities per country for interstate militarized disputes from 1816-2007. We also introduce a measure of the "power" of a country: the National Material Capabilities Index. This index is composed of a composite of six variables: iron and steel production, military expenditures, military personnel, energy consumption, total population and urban population for each country. This index will serve as a proxy for the power of a country for the remainder of our analysis. </p>
 	      <h4>Crossfilter map</h4>
-	      <p>What three variables are being plotted. How to use crossfilters. </p>
-
-	      <h4>Conclusions</h4>
-	      <p>By selecting upper region of CINC we see lower fatalities per military personnel. Similarly for lower region. Problem: collapsing the time dimension, using time averages of CINC and size of military. Would be more useful to see data relative to the time the war occured. Not conclusive. Motivation for scatterplots.</p>
+	      <p>This visual consists of an interactive map with a colored overlay corresponding to one of three variables: the National Capabilites Index score, average fatalities per war or average fatalities per war per military personnel. The crossfilter box for each variable shows the distribution of the variable among the observations, but also allows the user to filter the observations by selecting a range for each variable. This provides an interactive tool to explore our hypothesis: by selecting the lower range on the National Capability index Crossfilter tool, we should expect to see observations filtered with relatively high fatalities. Conversely, by filtering at the high end of average fatalities, we should expect to see countries at the low end of the National Capability Index distribution. And indeed, by doing this filtering we see some evidence that supports our hypothesis.</p> 
+	     <p> While this visual provides some evidence consistent with our hypothesis, this method of analysis does not quantify the correlation we are attempting to examine. A different visual analysis technique should be applied to the data. Also problematic, the time dimension is removed from this analysis: all data has been averaged across observations. Since the size of a country's military and its score on the National Capabilites Index changes through time it would be much more useful to observe the relationship between fatalities and the National Capabilities Index at a specific time, rather than across a time average. We explore such an analysis in the next two visuals.</p>
 
 	      <h4>How Created</h4>
-	      <p>Table? Crossfilter, D3, leaflet</p>
-	  </div>
+	      <p>The following open-source libraries were used: 
+		<ul>
+		  <li><a href="http://leafletjs.com/">Leaflet.js</a>- JavaScript library for interactive maps</li>
+		  <li><a href="http://square.github.io/crossfilter/">Crossfilter</a>- fast multidimensional filtering for coordinated views</li>
+		  <li><a href="http://d3js.org/">D3</a>- Data Driven Documents</li>
+		  <li><a href="https://github.com/crcn/sift.js">Sift.js</a>- MongoDB inspired array filtering</li>
+		</ul>
+The map in this visual was created using a Spherical Mercator projection, the default projection availabe with Leaflet.
 
-    
+		</p>
+	  </div>
 	  </div> 
 
 	</div> <!-- / .tab-pane -->
 
 	<div class="tab-pane fade" id="vis_3">
 	  <h3>Fatalities vs National Capabilities Index</h3>
-	  Source: Correlates Of War <a href="http://www.correlatesofwar.org/COW2%20Data/Capabilities/nmc4.htm">National Material Capabilities v4.0</a> and <a href="http://www.correlatesofwar.org/COW2%20Data/WarData_NEW/WarList_NEW.html">Interstate War Data v4.0</a> | size of circle = military expenditures
+	  Source: Correlates Of War <a href="http://www.correlatesofwar.org/COW2%20Data/Capabilities/nmc4.htm">National Material Capabilities v4.0</a> and <a href="http://www.correlatesofwar.org/COW2%20Data/WarData_NEW/WarList_NEW.html">Interstate War Data v4.0</a> | size of circle = military personnel
 
 	  <iframe style="border: 0px;" src="/viz4" height="550" width="900" scrolling="no"></iframe> 
 	  <div class="panel panel-primary">
@@ -219,13 +232,13 @@
 
 
 		<h4>Dataset</h4>
-		<p>Same data as previous visual. What is being plotted</p>
+		<p>This visual makes use of the same data shown in Visual #2, but in the form of a scatter plot. A data point is plotted for each state involved in each dispute. Summary information can be viewed by hovering over a data point.</p>
 
 		<h4>Conclusions</h4>
-		<p>Inconsistent with hypotheis. Problem: not accounting for size of military. Motivation for visual 4.</p>
+		<p>A quick examination of the regression summary stats table shows the results are inconsistent with our hypothesis: fatalities are positively correlated with the National Capabilities Index score. The regression is statisticaly significant (p-value less than 0.05), however very little of the variation in fatalities is explained by the National Capabilities Index (low r-squared statistic). By observing the sizes of the data points (military personnel) we can see that military personnel is highly correlated with the National Capabilities Index. There is a significant mistake in this visual however: the number of fatalities is not adjusted to a per-capita value. It is likely that larger militaries experience greater fatalities per dispute simply becuase more members of the military are involved in fighting. Visual #4 takes this into account.</p>
 
 		<h4>How Created</h4>
-		<p>D3, log scale, regressions done with scipy Python, node.js javascript and sift used for parsing data (link to calc_data.js source on Github)</p>
+		<p>This visual was created using <a href="http://www.d3js.org">D3.</a> Regression analysis was done using Python SciPy.</p>
 	     	 
 
 	    </div>
@@ -266,15 +279,10 @@
 	
 
 		<h4>Dataset</h4>
-		<p>Same data as previous visual. What is being plotted</p>
+		<p>This visual is similar to Visual #3, however the number of fatalities is adjusted by dividing by the size of the state's military at the sime oof the dispute. </p>
 
 		<h4>Conclusions</h4>
-		<p>Inconsistent with hypotheis. Problem: not accounting for size of military. Motivation for visual 4.</p>
-
-		<h4>How Created</h4>
-		<p>D3, log scale, regressions done with scipy Python, node.js javascript and sift used for parsing data (link to calc_data.js source on Github)</p>
-
-		
+		<p>We can now see a slight negative correlation between fatalities per military personnel and the National Capabilities Index. However, the regression statistics show this result is not statistically significant. There is also an important problem: by adjusting fatalities by the size of the military we have introduced cross correlation into our regression. Since size of the military is highly correlated with the National Capabilities Index (as we saw in Visual #3, and indeed number of military personnel is a component of the Index) we have possibly contaminated the results by introducing this cross correlation. Results appear to be inconclusive, a better model should be used for explaining fatalities.</p>
 	    </div>
 	  </div>
 
@@ -289,16 +297,76 @@
 	  Source:  <a href="http://bl.ocks.org/mbostock/3711652">This demo</a> was created by <a href="http://bost.ocks.org/mike/">Mike Bostock</a> to showcase the map projections available in <a href="http://www.d3js.org">D3</a>
 	 
  <iframe style="border: 0px;" src="/project" height="550" width="1000" scrolling="no"></iframe> 
-	    <h4>Projections shown so far</h4>
-	    <p>Were all Mercator - limits of Leaflet. Distortion. So will describe: Hammer, ??, ??</p>
+	    <h4>Mercator</h4>
+	    <p>Visuals #1 and #2 both were displayed using a Mercator projection. The Mercator projection has a long history and gained initial popularity because of properties that made it particularly convenient for nautical navigation. The Mercator projection significantly distorts the map projection at the poles, however.</p>
+
+	    <p>
+	      <b>Projection formulas</b>
+	      <ul>
+		<li>\(x = \lambda - \lambda_0\)</li>
+		<li>\(y - \ln(\tan(\phi)+\sec(\phi)) \)</li>
+		<li>where: \(\phi\) is the latitude and \(\lambda\) is the longitude </li>
+	      </ul>
+
+	      <b>Inverse formulas</b>
+	      <ul>
+		<li>\(\phi = \tan^{-1}(\sinh(y))\)</li>
+		<li>\(\lambda = x + \lambda_0 \)</li>
+	      </ul>
+
+  
+	    </p>
 	    <h4>Lambert-Azimuthal Equal-Area Projection</h4>
-	    <p>Equations. I picked this one simply because polar aspect of this projection is the UN logo :-). What does Azimutal mean? What does equal-area mean? D3 example.</p>
+	    <p>The polar perspective of the Lambert-Azimuthal is used for the United Nations logo. </p>
+
+	    <b>Projection formulas</b>
+	      <ul>
+		<li>\(x = k^{'}\cos(\phi)\sin(\lambda-\lambda_0)\)</li>
+		<li>\(y = k^{'}(\cos(\phi_1)\sin(\phi)-\sin(\phi_1)\cos(\phi)\cos(\lambda-\lambda_0)) \)</li>
+		<li>where: \( k^{'}=\sqrt{\frac{2}{(1+\sin(\phi_1)\sin(\phi)+\cos(\phi_1)\cos(\phi)\cos(\lambda-\lambda_0))}}\) </li>
+	      </ul>
+
+	      <b>Inverse formulas</b>
+	      <ul>
+		<li>\(\phi = \sin^{-1}(\cos(c)\sin(\phi_1)+ \frac{(y\sin(c)\cos(\phi_1))}{\rho}) \)</li>
+		<li>\(\lambda = \lambda_0+\tan^{-1}(\frac{(x\sin(c))}{(\rho\cos(\phi_1)\cos(c)-y\sin(\phi_1)\sin(c))}) \)</li>
+		<li>where \( \rho = \sqrt{x^2+y^2} \)</li>
+		<li>and \( c = 2\sin^{-1}(\frac{1}{2}\rho)\)</li>
+	      </ul>
+
 	
 	    <h4>Hammer</h4>
-	    <p>Extension of Lambert-Azimuthal. What is the difference. See example in drop-down above</p>
+	    <p>The Hammer projection is an extension of the Lambert-Azimuthal projection which attempts to reduce the distortion toward the outer edges, where angual distortions are particularly bad. </p>
+	    <b>Projection formulas</b>
+	      <ul>
+		<li>\(x = \frac{2\sqrt{2}\cos(\phi)\sin(\frac{\lambda}{2})}{\sqrt{1+\cos(\phi)\cos(\frac{\lambda}{2})}}\)</li>
+		<li>\( y = \frac{\sqrt 2\sin(\phi)}{\sqrt{1 + \cos(\phi) \cos\left(\frac\lambda 2\right)}}\)</li>
+		<li>where: \(\phi\) is the latitude and \(\lambda\) is the longitude </li>
+	      </ul>
 
-	    <h4>Spherical Mercator</h4>
-	    <p>Equations. D3 example. Used by tiled mapping libraries (like Leaflet, see visuals 1,2)</p>
+	      <b>Inverse formulas</b>The inverse is calculated with the intermediate variable z
+	      <ul>
+		<li>\(z \equiv \sqrt{1 - \left(\frac1 4 x\right)^2 - \left(\frac1 2 y\right)^2}\)</li>
+		<li>\(\lambda = 2 \arctan \left[\frac{zx}{2(2z^2 - 1)}\right]\)</li>
+		<li>\(\phi = \arcsin(zy) \)</li>
+	      </ul>
+
+	      <h4>References</h4>
+	      <p>
+		<ul>
+		  <li>http://en.wikipedia.org/wiki/Mercator_projection</li>
+		  <li>http://mathworld.wolfram.com/MercatorProjection.html</li>
+		  <li>http://www.progonos.com/furuti/MapProj/Normal/CartHow/HowAzEqDA/howAzEqDA.html</li>
+		  <li>http://lazarus.elte.hu/~guszlev/vet/plane.htm</li>
+		  <li>http://en.wikipedia.org/wiki/Lambert_azimuthal_equal-area_projection</li>
+		  <li>http://mathworld.wolfram.com/LambertAzimuthalEqual-AreaProjection.html</li>
+		  <li>http://mathworld.wolfram.com/Hammer-AitoffEqual-AreaProjection.html</li>
+		  <li>http://en.wikipedia.org/wiki/Hammer_projection</li>
+		</ul>
+	      </p>
+
+
+
 	</div>
       </div> <!-- /.tab-content-->
 
@@ -306,9 +374,3 @@
     
   </body>
 </html>
-
-
-
-
-
-
