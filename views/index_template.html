@@ -86,7 +86,7 @@
 
 
 	<div class="tab-pane fade" id="hypothesis">
-	  <br><p>As nation-states obtain more power (money, population, technological advantages, competitive advantages resulting in favorable international trading, etc.) they have more incentive to reach peaceful resolutions of conflict, as they have more to lose by going to war. When such powerful nation-states do chose to enter a militarized inter-state dispute, they have certain advantages over less powerful nations: significant investments in military capabilities, political power that might lead to diplomatic resolutions as a result of trading partnerships and treaty alliances. Powerful coutries should have access to advanced military weaponry (drones, missles, aircraft, intelligence, assistance from treaty alliances, etc.) to which less powerful states might have access. With this asymmetry in mind, we can begin to form a hypotheis regarding fatalities suffered during militarized disputes: </p>
+	  <br><p>As nation-states obtain more power (money, population, technological advantages, competitive advantages resulting in favorable international trading, etc.) they have more incentive to reach peaceful resolutions of conflict, as they have more to lose by going to war. When such powerful nation-states do chose to enter a militarized inter-state dispute, they have certain advantages over less powerful nations such as significant investments in military capabilities or political power that might lead to diplomatic resolutions as a result of trading partnerships and treaty alliances. Powerful coutries should have access to advanced military weaponry (drones, missles, aircraft, intelligence, assistance from treaty alliances, etc.) to which less powerful states might not have access. With this asymmetry in mind, we can begin to form a hypotheis regarding fatalities suffered during militarized disputes: </p>
 	  <div class="panel panel-info">
 	    <div class="panel-heading">
 	      <h3 class="panel-title">Hypothesis</h3>
@@ -109,7 +109,7 @@
 	      <h3 class="panel-title">Why this is a bad visual</h3>
 	    </div>
 	    <div class="panel-body">
-	      <p>This visual seems to have a good map projection and dataset, but does a poor job of implementation. The legend gives no indication of the units used for population. At first, I thought the units were million of people, however after some quick scrutiny that is clearly not the case. The use of circle overlays in itself is not bad, however the way this visual has moved the overlays aside to allow labeling is problematic. If the intent is to show population density, then keeping the circle overlays positioned geographically correctly is key. Moving them aside only distorts the data being displayed, while not adding much value to the labeling. Instead, the circles should have been kept centered over the city they represent with labeling done inside the circle when needed. This would have more clearly shown population density per geographic region.</p>
+	      <p>This visual seems to have a good map projection and dataset, but does a poor job of implementation. The legend gives no indication of the units used for population. At first, I thought the units were millions of people, however after some quick scrutiny that is clearly not the case. The use of circle overlays in itself is not bad, however the way this visual has moved the overlays aside to allow labeling is problematic. If the intent is to show population density, then keeping the circle overlays positioned geographically accurate is key. Moving them aside only distorts the data being displayed, while not adding much value to the labeling. Instead, the circles should have been kept centered over the city they represent with labeling done inside the circle when needed. A different scale for the circles might also be beneficial (a logarithmic scale perhaps?). These changes would have more clearly shown population density per geographic region.</p>
 	    </div>
 	  </div>
 
@@ -179,7 +179,7 @@ The map displayed uses a Spherical Mercator projection, the defaul projection pr
 	    </div>
 	    <div class="panel-body">
 	      <h4>Dataset</h4>
-	      <p>This visual makes use of v4.0 of the Correlates Of War inter-state war data. This dataset contains number of battle related fatalities per country for interstate militarized disputes from 1816-2007. We also introduce a measure of the "power" of a country: the National Material Capabilities Index. This index is composed of a composite of six variables: iron and steel production, military expenditures, military personnel, energy consumption, total population and urban population for each country. This index will serve as a proxy for the power of a country for the remainder of our analysis. </p>
+	      <p>This visual makes use of v4.0 of the Correlates Of War inter-state war data. Unlike v3.10 (used in Visual #1), this dataset contains number of battle related fatalities per country for interstate militarized disputes from 1816-2007. We also introduce a measure of the "power" of a country: the National Material Capabilities Index. This index is composed of a composite of six variables: iron and steel production, military expenditures, military personnel, energy consumption, total population and urban population for each country. This index will serve as a proxy for the power of a country for the remainder of our analysis. </p>
 	      <h4>Crossfilter map</h4>
 	      <p>This visual consists of an interactive map with a colored overlay corresponding to one of three variables: the National Capabilites Index score, average fatalities per war or average fatalities per war per military personnel. The crossfilter box for each variable shows the distribution of the variable among the observations, but also allows the user to filter the observations by selecting a range for each variable. This provides an interactive tool to explore our hypothesis: by selecting the lower range on the National Capability index Crossfilter tool, we should expect to see observations filtered with relatively high fatalities. Conversely, by filtering at the high end of average fatalities, we should expect to see countries at the low end of the National Capability Index distribution. And indeed, by doing this filtering we see some evidence that supports our hypothesis.</p> 
 	     <p> While this visual provides some evidence consistent with our hypothesis, this method of analysis does not quantify the correlation we are attempting to examine. A different visual analysis technique should be applied to the data. Also problematic, the time dimension is removed from this analysis: all data has been averaged across observations. Since the size of a country's military and its score on the National Capabilites Index changes through time it would be much more useful to observe the relationship between fatalities and the National Capabilities Index at a specific time, rather than across a time average. We explore such an analysis in the next two visuals.</p>
@@ -235,7 +235,7 @@ The map in this visual was created using a Spherical Mercator projection, the de
 		<p>This visual makes use of the same data shown in Visual #2, but in the form of a scatter plot. A data point is plotted for each state involved in each dispute. Summary information can be viewed by hovering over a data point.</p>
 
 		<h4>Conclusions</h4>
-		<p>A quick examination of the regression summary stats table shows the results are inconsistent with our hypothesis: fatalities are positively correlated with the National Capabilities Index score. The regression is statisticaly significant (p-value less than 0.05), however very little of the variation in fatalities is explained by the National Capabilities Index (low r-squared statistic). By observing the sizes of the data points (military personnel) we can see that military personnel is highly correlated with the National Capabilities Index. There is a significant mistake in this visual however: the number of fatalities is not adjusted to a per-capita value. It is likely that larger militaries experience greater fatalities per dispute simply becuase more members of the military are involved in fighting. Visual #4 takes this into account.</p>
+		<p>A quick examination of the regression summary stats table shows the results are inconsistent with our hypothesis: fatalities are positively correlated with the National Capabilities Index score. The regression is statisticaly significant (p-value less than 0.05), however very little of the variation in fatalities is explained by the National Capabilities Index (low r-squared statistic). There is a significant mistake in this visual however: the number of fatalities is not adjusted to a per-capita value. It is likely that larger militaries experience greater fatalities per dispute simply becuase more members of the military are involved in fighting. Visual #4 takes this into account. It is also important to note tha by observing the sizes of the data points plotted (military personnel) we can see that military personnel is highly correlated with the National Capabilities Index. </p>
 
 		<h4>How Created</h4>
 		<p>This visual was created using <a href="http://www.d3js.org">D3.</a> Regression analysis was done using Python SciPy.</p>
@@ -279,10 +279,10 @@ The map in this visual was created using a Spherical Mercator projection, the de
 	
 
 		<h4>Dataset</h4>
-		<p>This visual is similar to Visual #3, however the number of fatalities is adjusted by dividing by the size of the state's military at the sime oof the dispute. </p>
+		<p>This visual is similar to Visual #3, however the number of fatalities is adjusted by dividing the size of the state's military at the sime oof the dispute. </p>
 
 		<h4>Conclusions</h4>
-		<p>We can now see a slight negative correlation between fatalities per military personnel and the National Capabilities Index. However, the regression statistics show this result is not statistically significant. There is also an important problem: by adjusting fatalities by the size of the military we have introduced cross correlation into our regression. Since size of the military is highly correlated with the National Capabilities Index (as we saw in Visual #3, and indeed number of military personnel is a component of the Index) we have possibly contaminated the results by introducing this cross correlation. Results appear to be inconclusive, a better model should be used for explaining fatalities.</p>
+		<p>We can now see a slight negative correlation between fatalities per military personnel and the National Capabilities Index. However, the regression statistics show this result is not statistically significant. There is also an important problem: by adjusting fatalities by the size of the military we have introduced cross correlation into our regression. Since size of the military is highly correlated with the National Capabilities Index (as we saw in Visual #3, and indeed number of military personnel is a component of the Index) we have possibly contaminated the results by introducing this cross correlation. Overall results seem to be inconclusive, a better model should be used for this analysis.</p>
 	    </div>
 	  </div>
 
@@ -298,7 +298,7 @@ The map in this visual was created using a Spherical Mercator projection, the de
 	 
  <iframe style="border: 0px;" src="/project" height="550" width="1000" scrolling="no"></iframe> 
 	    <h4>Mercator</h4>
-	    <p>Visuals #1 and #2 both were displayed using a Mercator projection. The Mercator projection has a long history and gained initial popularity because of properties that made it particularly convenient for nautical navigation. The Mercator projection significantly distorts the map projection at the poles, however.</p>
+	    <p>Visuals #1 and #2 both were displayed using a Mercator projection. The Mercator projection has a long history (first presented in 1569) and gained initial popularity because of properties that made it particularly convenient for nautical navigation (by representing rhumb lines, or a line crossing all meridans or longitude at the same angle - in nautical terms a bearing - as stright lines). The Mercator projection significantly distorts the map projection at the poles, however.</p>
 
 	    <p>
 	      <b>Projection formulas</b>
@@ -317,7 +317,7 @@ The map in this visual was created using a Spherical Mercator projection, the de
   
 	    </p>
 	    <h4>Lambert-Azimuthal Equal-Area Projection</h4>
-	    <p>The polar perspective of the Lambert-Azimuthal is used for the United Nations logo. </p>
+	    <p>The polar perspective of the Lambert-Azimuthal is used for the United Nations logo. The entire Earth can be viewed, however angular distortions are extremely bad at the edges.</p>
 
 	    <b>Projection formulas</b>
 	      <ul>
@@ -336,7 +336,7 @@ The map in this visual was created using a Spherical Mercator projection, the de
 
 	
 	    <h4>Hammer</h4>
-	    <p>The Hammer projection is an extension of the Lambert-Azimuthal projection which attempts to reduce the distortion toward the outer edges, where angual distortions are particularly bad. </p>
+	    <p>The Hammer projection is an extension of the Lambert-Azimuthal projection which attempts to reduce the distortion toward the outer edges, where angual distortions are particularly bad. This extension involves an intermediate transformation by halving the vertical coordinates and doubling the values of the meridians from the center.</p>
 	    <b>Projection formulas</b>
 	      <ul>
 		<li>\(x = \frac{2\sqrt{2}\cos(\phi)\sin(\frac{\lambda}{2})}{\sqrt{1+\cos(\phi)\cos(\frac{\lambda}{2})}}\)</li>
@@ -344,9 +344,10 @@ The map in this visual was created using a Spherical Mercator projection, the de
 		<li>where: \(\phi\) is the latitude and \(\lambda\) is the longitude </li>
 	      </ul>
 
-	      <b>Inverse formulas</b>The inverse is calculated with the intermediate variable z
+	      <b>Inverse formulas</b>
+	    The inverse is calculated with the intermediate variable z
 	      <ul>
-		<li>\(z \equiv \sqrt{1 - \left(\frac1 4 x\right)^2 - \left(\frac1 2 y\right)^2}\)</li>
+		<li>\(z = \sqrt{1 - \left(\frac1 4 x\right)^2 - \left(\frac1 2 y\right)^2}\)</li>
 		<li>\(\lambda = 2 \arctan \left[\frac{zx}{2(2z^2 - 1)}\right]\)</li>
 		<li>\(\phi = \arcsin(zy) \)</li>
 	      </ul>
